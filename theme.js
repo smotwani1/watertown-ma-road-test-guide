@@ -1,5 +1,3 @@
-// Dark-mode toggle, shared across pages. The pre-paint theme is set by an
-// inline script in each page's <head> to avoid a flash of the wrong theme.
 (function () {
   var root = document.documentElement;
   var btn = document.getElementById('themeToggle');
@@ -7,7 +5,7 @@
     var dark = root.getAttribute('data-theme') === 'dark';
     if (btn) {
       btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
-      btn.textContent = dark ? '\u2600' : '\u263E'; // sun when dark, moon when light
+      btn.textContent = dark ? '\u2600' : '\u263E'; 
     }
   }
   sync();

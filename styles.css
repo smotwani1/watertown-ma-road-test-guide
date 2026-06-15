@@ -1,9 +1,3 @@
-/* =========================================================================
-   Watertown RMV Road Test Guide — shared stylesheet
-   Design: warm paper, Fraunces serif headings, green "pass" accent,
-   dashed road-lane dividers. Light + dark themes via CSS variables.
-   ========================================================================= */
-
 :root{
   --paper:#f5f0e6; --card:#fffdf8; --ink:#221f1a; --soft:#5e594e; --faint:#857f6f;
   --line:#ddd5c2; --go:#1c7a55; --go-soft:#e3efe5; --go-line:#bcdcc6;

@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Feedback — Watertown RMV Road Test Guide</title>
+<title>Feedback for the Watertown RMV Road Test Guide</title>
 <meta name="description" content="Took the Watertown road test recently? Send a correction or tell us what to add. Keeping the guide accurate.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Feedback — Watertown RMV Road Test Guide">
-<meta property="og:description" content="Send a correction or tell us what to add — help keep the guide accurate.">
+<meta property="og:title" content="Feedback for the Watertown RMV Road Test Guide">
+<meta property="og:description" content="Send a correction or tell us what to add to help keep the guide accurate.">
 <meta property="og:image" content="og-image.png">
-<meta property="og:url" content="https://USERNAME.github.io/watertown-road-test/contact.html">
+<meta property="og:url" content="https://smotwani1.github.io/watertown-road-test/contact.html">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +38,7 @@
     <section class="hero reveal">
       <p class="eyebrow">Keep it accurate</p>
       <h1>Spotted something out of date?</h1>
-      <p class="promise">Routes and examiners change. If you took the Watertown test recently, tell us what was different — or what you wish this guide had covered.</p>
+      <p class="promise">Routes and examiners change. If you took the Watertown test recently, tell us what was different or what you wish this guide had covered.</p>
     </section>
 
     <section class="reveal" aria-labelledby="form-h">
@@ -82,8 +82,6 @@
 
 <script src="theme.js"></script>
 <script>
-  // Client-side handling only (static site). For real delivery, wire this to a
-  // form service like Formspree or Netlify Forms by setting the form's action.
   var form = document.getElementById('feedbackForm');
   var status = document.getElementById('formStatus');
   form.addEventListener('submit', function (e) {
@@ -92,7 +90,7 @@
       form.reportValidity();
       return;
     }
-    status.textContent = 'Thanks, ' + document.getElementById('name').value.trim() + ' — your note has been recorded. (Demo: not yet sent anywhere.)';
+    status.textContent = 'Thanks, ' + document.getElementById('name').value.trim() + ', your note has been recorded. (Demo: not yet sent anywhere.)';
     form.reset();
   });
 </script>

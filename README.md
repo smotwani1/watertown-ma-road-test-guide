@@ -1,45 +1,48 @@
 # Watertown RMV Road Test Guide
 
-A free, multi-page guide to the Massachusetts road test at the Watertown RMV —
-the requirements, the maneuvers, both routes, the rules people get wrong, and a
-flashcard self-quiz. Built for an anxious learner driver who studies visually.
+A free, mobile-first guide to passing the Class D road test at the Watertown RMV in
+Massachusetts, the routes, the maneuvers, what examiners actually grade, the car
+requirements, and the rules people get wrong, plus a flashcard self-quiz.
 
-**Live site:** https://USERNAME.github.io/watertown-road-test/ *(update after deploy)*
+## Who this is for
 
-## Pages
-- `index.html` — Overview (at a glance, the opening, day-of plan)
-- `maneuvers.html` — Scored checklist + step-by-step maneuvers
-- `routes.html` — Both Watertown routes, speed zones, top failure reasons
-- `flashcards.html` — Flip-card self-quiz + rules reference
-- `contact.html` — Feedback form
+My client is **Akshata**, my girlfriend. She recently passed her Massachusetts permit
+test and is preparing for her road test at the Watertown RMV. She gets anxious before
+tests and learns best through flashcards and visual cues, so I built this for her, and
+for anyone else testing at Watertown who's tired of piecing together scattered, generic
+advice from Reddit threads and Facebook comments.
 
-## Requirements checklist (Base)
-- [x] **3+ pages with consistent navigation** — 5 pages, shared header/nav
-- [x] **Semantic HTML** — `<header>`, `<nav>`, `<main>`, `<footer>`, `<section>`
-- [x] **External CSS stylesheet** — `styles.css` (shared by every page)
-- [x] **Layout with Grid or Flexbox** — flex nav; grid for "at a glance" and flashcards
-- [x] **Responsive** — mobile-first; layouts collapse below 520px
-- [x] **Favicon** — `favicon.svg`
-- [ ] **Deployed on GitHub Pages** — see steps below
+## What the site does
 
-## Extensions included
-- [x] CSS animations / transitions — scroll-reveal, accordion, flashcard flip
-- [x] Google Fonts — Fraunces (display) + Hanken Grotesk (body)
-- [x] Contact form with validation attributes (`required`, `minlength`, `type="email"`)
-- [x] Dark mode toggle — persists via `localStorage`, respects system preference
-- [x] Open Graph meta tags + `og-image.png`
-- Accessibility: semantic landmarks, `aria-current`, labels, visible focus, reduced-motion
+It consolidates real, Watertown-specific road-test information into one trustworthy place
+so test-day nerves come from normal anxiety, not the unknown. It includes:
 
-## Deploy to GitHub Pages
-1. Create a new GitHub repository (e.g. `watertown-road-test`).
-2. Upload every file in this folder to the repo root (keep the filenames as-is).
-3. In the repo, go to **Settings → Pages**.
-4. Under **Source**, choose **Deploy from a branch**, pick `main` and `/ (root)`, save.
-5. Wait ~1 minute; your live URL appears at the top of that Pages settings screen.
-6. Replace the `USERNAME` placeholders in the README and the `og:url` meta tags with your real URL.
+- **Overview** - requirements at a glance, the opening sequence, and a day-of plan
+- **Maneuvers** - what the examiner grades, with step-by-step maneuver instructions
+- **Routes** - both Watertown test routes, speed zones, and the top reasons people fail
+- **Flashcards** - a flip-card self-quiz for active-recall study
+- **Feedback** - a form for recent test-takers to send corrections
 
-## Notes
-- The feedback form is front-end only on a static host. To actually receive
-  submissions, point the form's `action` at a service like Formspree.
-- Official items are verified against the RMV road test materials and the MA
-  Driver's Manual. Route details are reported by recent test-takers and may change.
+Every fact is labeled as either **Official** (verified against the RMV documents and the
+MA Driver's Manual) or **Reported** (from recent test-takers), so readers know what to
+trust. The design is calm and reassuring on purpose - warm paper background, soft serif
+headings, a green accent, and a dark-mode toggle.
+
+## Live site
+
+https://smotwani1.github.io/watertown-road-test/
+
+## What I learned
+
+- **Interview your client before you assume.** I built an early version thinking she
+  needed thorough written explanations. The interview revealed she's a visual learner who
+  studies by active recall, so I added the flashcard quiz and visual cues. The *way* she
+  learns mattered as much as the content.
+- **AI generates confident, wrong facts.** When I used AI design tools, they invented a
+  fake address and missed real requirements. I kept only verified content, which is the
+  whole point of the product: being trustworthy where the internet is scattered and wrong.
+- **Real CSS I now understand:** Flexbox and CSS Grid for layout, custom properties
+  (`--variables`) to power light/dark themes, `@media` queries for responsiveness,
+  `position: sticky`, and `transform: rotateY()` for the flashcard flip.
+- **Shipping is the hard part.** Researching and building was satisfying; getting it in
+  front of a real user and acting on feedback is where the real work is.

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flashcards — Watertown RMV Road Test Guide</title>
+<meta name="description" content="Flip-card self-quiz for the Watertown road test: rules of the road, scored items, and the things people get wrong. Built for active-recall study.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Road Test Flashcards — Watertown RMV">
+<meta property="og:description" content="Quiz yourself on the rules and scored items with flip cards built for active recall.">
+<meta property="og:image" content="og-image.png">
+<meta property="og:url" content="https://USERNAME.github.io/watertown-road-test/flashcards.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><img src="favicon.svg" alt=""> Watertown Road Test</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html">Overview</a>
+      <a href="maneuvers.html">Maneuvers</a>
+      <a href="routes.html">Routes</a>
+      <a href="flashcards.html" aria-current="page">Flashcards</a>
+      <a href="contact.html">Feedback</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">&#9790;</button>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="hero reveal">
+      <p class="eyebrow">Quiz yourself</p>
+      <h1>Flashcards</h1>
+      <p class="promise">Tap a card to flip it. Cover the answer, say it out loud, then check — active recall sticks far better than re-reading.</p>
+    </section>
+
+    <section class="reveal" aria-labelledby="cards-h">
+      <h2 id="cards-h" class="sr-only">Flashcards</h2>
+      <div class="flash-grid" id="flashGrid">
+        <!-- cards injected by script from the data below -->
+      </div>
+    </section>
+
+    <hr class="lane">
+
+    <section class="reveal" aria-labelledby="rules-h">
+      <h2 id="rules-h">Rules people get wrong</h2>
+      <p class="sub">The misinformation that fails good drivers — verified against the Massachusetts Driver's Manual.</p>
+      <div class="card">
+        <div class="qa"><p class="q">Flashing yellow circle <span class="src off">Official</span></p><p class="a">It's a warning: proceed with caution, stay alert, and look both ways when crossing the intersection.</p></div>
+        <div class="qa"><p class="q">Right turn on red <span class="src off">Official</span></p><p class="a">Allowed after a complete stop and yielding to pedestrians and other vehicles — unless a NO TURN ON RED sign is posted. (You may also turn left on red from a one-way onto a one-way, after stopping and yielding.)</p></div>
+        <div class="qa"><p class="q">Where to stop at a stop sign <span class="src off">Official</span></p><p class="a">Come to a complete halt before any crosswalk or stop line, yield, then go carefully. Just slowing down is not enough.</p></div>
+        <div class="qa"><p class="q">Four-way stop <span class="src off">Official</span></p><p class="a">When ALL WAY is posted, every vehicle stops. The first to arrive has the right of way. Arrive together? Yield, make eye contact, proceed carefully.</p></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">Rules verified against the Massachusetts Driver's Manual. Flashcards summarize the official rules and the most-reported scored items.</div>
+</footer>
+
+<script src="theme.js"></script>
+<script>
+  // Flashcard data: front question, back answer.
+  var CARDS = [
+    {q:"What do you do at a flashing yellow light?", a:"Slow down, stay alert, look both ways, and proceed with caution."},
+    {q:"Can you turn right on red?", a:"Yes — after a complete stop and yielding to pedestrians and traffic, unless a NO TURN ON RED sign is posted."},
+    {q:"Where do you stop at a stop sign?", a:"Completely, before any crosswalk or stop line. Slowing down isn't enough."},
+    {q:"Two cars reach a 4-way stop together — who goes?", a:"The first to arrive has the right of way. If unsure, yield and make eye contact."},
+    {q:"Wheels parked uphill with a curb — which way?", a:"Toward the center of the road, away from the curb. (UCLA: Uphill, Curb, Left.)"},
+    {q:"How do you back up 50 ft in a straight line?", a:"Look out the rear window and use your mirrors — not the steering wheel."},
+    {q:"Biggest reason people fail at Watertown?", a:"Not making visual / shoulder checks obvious before maneuvers."},
+    {q:"What must the examiner be able to reach in your car?", a:"The parking brake. Push-button or console-blocked brakes can disqualify the car."},
+    {q:"What's the opening sequence?", a:"Hand signals, confirm signals work, beep the horn — and buckle up + adjust mirrors before starting the engine."},
+    {q:"What do you do the moment the test ends?", a:"Put the car in park. People lose an easy point by forgetting."}
+  ];
+  var grid = document.getElementById('flashGrid');
+  CARDS.forEach(function(c, i){
+    var btn = document.createElement('button');
+    btn.className = 'flash';
+    btn.type = 'button';
+    btn.setAttribute('aria-pressed', 'false');
+    btn.setAttribute('aria-label', 'Flashcard: ' + c.q);
+    btn.innerHTML =
+      '<div class="flash-inner">' +
+        '<div class="flash-face flash-front"><p class="label">Card ' + (i+1) + '</p><p class="q">' + c.q + '</p><p class="hint">Tap to reveal</p></div>' +
+        '<div class="flash-face flash-back"><p>' + c.a + '</p></div>' +
+      '</div>';
+    btn.addEventListener('click', function(){
+      var pressed = btn.getAttribute('aria-pressed') === 'true';
+      btn.setAttribute('aria-pressed', pressed ? 'false' : 'true');
+    });
+    grid.appendChild(btn);
+  });
+</script>
+</body>
+</html>

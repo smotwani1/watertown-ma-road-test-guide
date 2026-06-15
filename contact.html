@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback — Watertown RMV Road Test Guide</title>
+<meta name="description" content="Took the Watertown road test recently? Send a correction or tell us what to add. Keeping the guide accurate.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Feedback — Watertown RMV Road Test Guide">
+<meta property="og:description" content="Send a correction or tell us what to add — help keep the guide accurate.">
+<meta property="og:image" content="og-image.png">
+<meta property="og:url" content="https://USERNAME.github.io/watertown-road-test/contact.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><img src="favicon.svg" alt=""> Watertown Road Test</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html">Overview</a>
+      <a href="maneuvers.html">Maneuvers</a>
+      <a href="routes.html">Routes</a>
+      <a href="flashcards.html">Flashcards</a>
+      <a href="contact.html" aria-current="page">Feedback</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">&#9790;</button>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="hero reveal">
+      <p class="eyebrow">Keep it accurate</p>
+      <h1>Spotted something out of date?</h1>
+      <p class="promise">Routes and examiners change. If you took the Watertown test recently, tell us what was different — or what you wish this guide had covered.</p>
+    </section>
+
+    <section class="reveal" aria-labelledby="form-h">
+      <h2 id="form-h" class="sr-only">Feedback form</h2>
+      <div class="form-card">
+        <form id="feedbackForm" novalidate>
+          <div class="field">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" required minlength="2" autocomplete="name" placeholder="First name is fine">
+          </div>
+          <div class="field">
+            <label for="email">Email <span style="font-weight:400;color:var(--faint);">(optional, if you want a reply)</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com">
+            <p class="help">We'll only use this to reply about your note.</p>
+          </div>
+          <div class="field">
+            <label for="site">Which test were you at?</label>
+            <select id="site" name="site" required>
+              <option value="" disabled selected>Choose one</option>
+              <option>Watertown</option>
+              <option>Another MA RMV site</option>
+              <option>Haven't taken it yet</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Your note</label>
+            <textarea id="message" name="message" rows="5" required minlength="10" placeholder="What was different, or what should we add?"></textarea>
+            <p class="help">At least a sentence, so we can actually act on it.</p>
+          </div>
+          <button class="btn" type="submit">Send feedback</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">Thanks for helping keep this guide trustworthy. Every correction makes it more useful for the next nervous test-taker.</div>
+</footer>
+
+<script src="theme.js"></script>
+<script>
+  // Client-side handling only (static site). For real delivery, wire this to a
+  // form service like Formspree or Netlify Forms by setting the form's action.
+  var form = document.getElementById('feedbackForm');
+  var status = document.getElementById('formStatus');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    status.textContent = 'Thanks, ' + document.getElementById('name').value.trim() + ' — your note has been recorded. (Demo: not yet sent anywhere.)';
+    form.reset();
+  });
+</script>
+</body>
+</html>

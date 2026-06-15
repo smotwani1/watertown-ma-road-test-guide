@@ -30,7 +30,7 @@ headings, a green accent, and a dark-mode toggle.
 
 ## Live site
 
-https://smotwani1.github.io/watertown-road-test/
+https://smotwani1.github.io/watertown-ma-road-test-guide/
 
 ## What I learned
 
